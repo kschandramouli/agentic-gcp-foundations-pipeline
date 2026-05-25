@@ -121,7 +121,6 @@ if [ $FAILED -eq 0 ]; then
     echo ""
     echo "GitHub Secrets Configuration:"
     echo -e "WIF_PROVIDER: ${YELLOW}projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${POOL_ID}/providers/${PROVIDER_ID}${NC}"
-    echo -e "WIF_SERVICE_ACCOUNT: ${YELLOW}${SA_EMAIL}${NC}"
     exit 0
 else
     echo -e "${RED}✗ WIF Configuration has issues${NC}"

@@ -207,7 +207,7 @@ git push
 **Common issues:**
 
 1. **Authentication failed**
-   - Check WIF_PROVIDER and WIF_SERVICE_ACCOUNT secrets
+   - Check WIF_PROVIDER secret
    - Verify GCP IAM bindings
 
 2. **Variable not set**

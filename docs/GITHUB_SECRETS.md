@@ -22,23 +22,6 @@ projects/123456789/locations/global/workloadIdentityPools/github-action-landing/
 - `{POOL_ID}`: Default is `github-action-landing` (from setup script)
 - `{PROVIDER_ID}`: Default is `github-oidc-provider` (from setup script)
 
-### 2. `WIF_SERVICE_ACCOUNT`
-The service account email used by GitHub Actions.
-
-**Format:**
-```
-{SERVICE_ACCOUNT_ID}@{PROJECT_ID}.iam.gserviceaccount.com
-```
-
-**Example:**
-```
-github-action@my-project.iam.gserviceaccount.com
-```
-
-**Where to find:**
-- `{SERVICE_ACCOUNT_ID}`: Default is `github-action` (from setup script)
-- `{PROJECT_ID}`: Your GCP Project ID
-
 ## Setting Up Secrets in GitHub
 
 ### Via Web UI
@@ -47,7 +30,7 @@ github-action@my-project.iam.gserviceaccount.com
 2. Go to **Settings** → **Secrets and variables** → **Actions**
 3. Click **New repository secret**
 4. For each secret:
-   - Name: `WIF_PROVIDER` or `WIF_SERVICE_ACCOUNT`
+   - Name: `WIF_PROVIDER`
    - Value: (paste the value from above)
    - Click **Add secret**
 
@@ -58,9 +41,6 @@ If you have the GitHub CLI installed:
 ```bash
 # Set WIF_PROVIDER
 gh secret set WIF_PROVIDER --body "projects/123456789/locations/global/workloadIdentityPools/github-action-landing/providers/github-oidc-provider"
-
-# Set WIF_SERVICE_ACCOUNT
-gh secret set WIF_SERVICE_ACCOUNT --body "github-action@my-project.iam.gserviceaccount.com"
 ```
 
 ### Via Setup Script
@@ -99,21 +79,6 @@ gcloud iam workload-identity-pools providers list \
   --workload-identity-pool=github-action-landing \
   --project=YOUR_PROJECT_ID
 ```
-
-### Error: "Unable to generate access token"
-
-**Cause**: WIF_SERVICE_ACCOUNT has incorrect IAM bindings
-
-**Solution**:
-```bash
-# Verify the bindings
-gcloud iam service-accounts get-iam-policy \
-  github-action@YOUR_PROJECT_ID.iam.gserviceaccount.com
-```
-
-Should include:
-- `roles/iam.workloadIdentityUser` for the principal set
-- `roles/iam.serviceAccountTokenCreator` for the principal set
 
 ### Secrets not available in workflow
 

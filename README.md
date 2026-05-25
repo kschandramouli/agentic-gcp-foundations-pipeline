@@ -137,12 +137,10 @@ terraform apply
    | Secret Name | Value |
    |-------------|-------|
    | `WIF_PROVIDER` | `projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/github-action-landing/providers/github-oidc-provider` |
-   | `WIF_SERVICE_ACCOUNT` | `github-action@{PROJECT_ID}.iam.gserviceaccount.com` |
 
 3. Example values:
    ```
    WIF_PROVIDER: projects/123456789/locations/global/workloadIdentityPools/github-action-landing/providers/github-oidc-provider
-   WIF_SERVICE_ACCOUNT: github-action@my-project.iam.gserviceaccount.com
    ```
 
 ### Step 3: Prepare Terraform Variables

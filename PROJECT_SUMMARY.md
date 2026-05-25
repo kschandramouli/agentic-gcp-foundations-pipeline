@@ -80,7 +80,6 @@ This script will:
 
 From the script output, add these secrets to your GitHub repository:
 - `WIF_PROVIDER` - The Workload Identity Provider resource name
-- `WIF_SERVICE_ACCOUNT` - The service account email
 
 Settings → Secrets and variables → Actions → New repository secret
 
