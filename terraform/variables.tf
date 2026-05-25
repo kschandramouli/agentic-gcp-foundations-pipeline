@@ -55,8 +55,8 @@ variable "admin_group_email" {
 }
 
 variable "enable_required_apis" {
-  type        = list(string)
-  default     = [
+  type = list(string)
+  default = [
     "iam.googleapis.com",
     "iamcredentials.googleapis.com",
     "cloudresourcemanager.googleapis.com",
