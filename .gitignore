@@ -1,0 +1,45 @@
+# Terraform state
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Terraform directories
+.terraform/
+terraform/.terraform/
+terraform/crash.log
+terraform/crash.*.log
+
+# Environment variables
+.env
+.env.local
+*.tfvars
+!*.tfvars.example
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build artifacts
+dist/
+build/
+*.zip
+*.tar.gz
+
+# GitHub Actions
+.github/workflows/*.log
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+temp/
+
+# OS specific
+Thumbs.db
