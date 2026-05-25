@@ -11,11 +11,6 @@ terraform {
       version = "~> 5.0"
     }
   }
-
-  backend "gcs" {
-    bucket = "" # Set this in backend config or via -backend-config flag
-    prefix = "terraform/state"
-  }
 }
 
 provider "google" {
