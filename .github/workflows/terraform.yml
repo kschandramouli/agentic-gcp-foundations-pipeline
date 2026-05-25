@@ -1,4 +1,5 @@
 name: Terraform Plan and Apply
+# Updated: trigger run with WIF_PROVIDER secret configured
 
 on:
   push:
