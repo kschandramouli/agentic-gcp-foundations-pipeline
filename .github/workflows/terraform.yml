@@ -1,5 +1,5 @@
 name: Terraform Plan and Apply
-# Updated: trigger run with WIF_PROVIDER secret configured
+# Updated: trigger run after support team applied WIF principalSet binding
 
 on:
   push:
