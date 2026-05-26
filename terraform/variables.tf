@@ -5,8 +5,8 @@ variable "gcp_project_id" {
 
 variable "gcp_region" {
   type        = string
-  default     = "us-central1"
-  description = "GCP region for resources"
+  default     = "australia-southeast1"
+  description = "GCP region for shared platform resources (GCS, Pub/Sub message storage, GKE, Cloud SQL)"
 }
 
 variable "github_repo_owner" {
@@ -34,11 +34,18 @@ variable "workload_identity_provider_id" {
 variable "enable_required_apis" {
   type = list(string)
   default = [
+    # IAM / project plumbing
     "iam.googleapis.com",
     "iamcredentials.googleapis.com",
     "cloudresourcemanager.googleapis.com",
     "sts.googleapis.com",
-    "serviceusage.googleapis.com"
+    "serviceusage.googleapis.com",
+    # Workload-plane APIs consumed by downstream apps (automi etc.)
+    "container.googleapis.com",
+    "pubsub.googleapis.com",
+    "secretmanager.googleapis.com",
+    "sqladmin.googleapis.com",
+    "storage.googleapis.com",
   ]
   description = "List of GCP APIs to enable on the project"
 }
