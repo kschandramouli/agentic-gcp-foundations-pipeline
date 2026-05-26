@@ -9,7 +9,6 @@ resource "google_project_service" "required_apis" {
 # Create Workload Identity Pool
 resource "google_iam_workload_identity_pool" "github_pool" {
   workload_identity_pool_id = var.workload_identity_pool_id
-  location                  = "global"
   display_name              = "GitHub Actions Pool"
   description               = "Workload Identity Pool for GitHub Actions OIDC"
   disabled                  = false
@@ -21,7 +20,6 @@ resource "google_iam_workload_identity_pool" "github_pool" {
 resource "google_iam_workload_identity_pool_provider" "github_provider" {
   workload_identity_pool_id          = google_iam_workload_identity_pool.github_pool.workload_identity_pool_id
   workload_identity_pool_provider_id = var.workload_identity_provider_id
-  location                           = "global"
   display_name                       = "GitHub OIDC Provider"
   description                        = "OIDC provider for GitHub Actions"
   disabled                           = false

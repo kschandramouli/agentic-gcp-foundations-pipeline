@@ -22,7 +22,7 @@ output "github_action_config" {
 }
 
 output "gcp_project_number" {
-  value       = data.google_client_config.current.project_number
+  value       = data.google_project.current.number
   description = "GCP Project Number"
 }
 
